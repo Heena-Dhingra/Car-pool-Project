@@ -20,25 +20,25 @@
             
             try
             {
-                String myUrl = "jdbc:mysql://localhost:3306/names";
+                String myUrl = "jdbc:mysql://localhost:3306/carpool";
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection conn = DriverManager.getConnection(myUrl,"root","");
                 out.println("Hello 1");
 
-                String query = "Select username,password from users where username='"+uname+"' and password ='"+pass+"'";
+                String query = "Select uname,pass from users where uname='"+uname+"' and pass ='"+pass+"'";
                 Statement st = conn.createStatement();
                 ResultSet rs = st.executeQuery(query);
                 
                if(rs.next())
                 {out.println("Logged in successfully");
                    out.println("Hello "+uname);
-//                    out.println("<form action='ses'>" +
-//                        "<input type='hidden' name='username' value="+uname+">" +
-//                        "<input type='hidden' name='password' value="+pass+">" +
-//                    "</form>");
-                     session=request.getSession(true);  
+//                    out.println("<form action='ses.jsp'>");
+//                        out.println("<input type='hidden' name='username' value="+uname+">");
+//                       out.println( "<input type='hidden' name='password' value="+pass+">");
+//                    out.println("</form>");
+//                     session=request.getSession(true);  
                        session.setAttribute("uname",uname);  
-                       out.print("<a href='ses'>visit</a>"); 
+                       out.print("<a href='ses.jsp'>visit</a>"); 
                        out.println(" session made");
                        
                 } 

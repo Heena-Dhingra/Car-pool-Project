@@ -6,17 +6,29 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Register here</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/stylereg.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            var check = function() {
+            if (document.getElementById('pass').value == document.getElementById('pass2').value) {
+              document.getElementById('message').style.color = 'green';
+              document.getElementById('message').innerHTML = 'matching';
+            } else {
+              document.getElementById('message').style.color = 'red';
+              document.getElementById('message').innerHTML = 'not matching';
+            }
+          }
+            </script>
     </head>
     <body>
         <div class="box">
-            <h2>Enter your details here:</h2>
-                <form action="first.html">
+            <h2>Enter your details here:</h2><br>
+                <form action="regdata.jsp">
                     <div class="inputBox">
-                        <input type="text" name="name"><br><br>
+                        <input type="text" name="uname" size="35" required><br><br>
                         <label>Name</label>
                     </div>
 
@@ -33,40 +45,46 @@ and open the template in the editor.
                     </div> -->
                     
                     <div class="inputBox">
-                        <input type="number" name="age" value=""><br><br>
+                        <input type="number" name="age" maxlength="3" min="18" title="you should be over 18 to register"><br><br>
                         <label>Age</label>
                     </div>
                     
                     <div class="inputBox">
-                        <input type="text" name="address" value=""><br><br>
-                        <label>ADDRESS</label>
-                    </div>
-                    
-                    <div class="inputBox">
-                        <input type="text" name="email" size="40"><br><br>
+                        <input type="text" name="email" maxlength="40" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{1,}[.]{1}[a-zA-Z]{1,}" title="use of @ and . is mandatory in this field"><br><br>
                         <label>E-MAIL</label>
                     </div>
                     
                     <div class="inputBox">
-                        <input type="tel" name="phoneno" maxlength="10" ><br><br>
+                        <input type="tel" name="phoneno" maxlength="10" pattern="[789][0-9]{9}" title="Phone number should start with 7,8 or 9"><br><br>
                         <label>PHONE-NO</label>
                     </div>
                     
                     <div class="inputBox">
-                        <input type="text" name="color" ><br><br>
+                        <input type="text" name="color" maxlength="12"><br><br>
                         <label>Enter Fav Color</label>
                     </div>
                     
                     <div class="inputBox">
-                        <input type="text" name="city" ><br><br>
+                        <input type="text" name="city" maxlength="12"><br><br>
                         <label>Enter Fav City:</label>
                     </div>
                     
                     <div class="inputBox">
-                        <input type="text" name="sport" ><br><br>
+                        <input type="text" name="sport" maxlength="12"><br><br>
                         <label>Enter Fav Sport:</label>
                     </div>
-            
+
+                    <div class="inputBox">
+                        <input type="password" name="pass" id="pass" maxlength="15" required><br><br>
+                        <label>Set Password</label>
+                    </div>
+                    
+                    <div class="inputBox">
+                        <input type="password" name="pass2" id="pass2" onkeyup='check();' maxlength="15" required><br>
+                        <label>Confirm Password</label>
+                         <span id='message'></span>
+                    </div>
+                    
                     <input type="submit" value="Submit Details"><br><br>
                     <input type="reset" value="RESET"><br>
                 </form>
