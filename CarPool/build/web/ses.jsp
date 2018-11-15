@@ -31,8 +31,8 @@
 		</div>	
 
 		<div class="button">
-			<a href="#" class="btn">Find Your Ride</a>
-			<a href="#" class="btn">Offer Ride</a>
+			<a href="findRide.jsp" class="btn">Find Your Ride</a>
+			<a href="offerRide.jsp" class="btn">Offer Ride</a>
 		</div>	
 	</header>
     </body>
