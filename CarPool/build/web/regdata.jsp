@@ -12,7 +12,7 @@
         <title>Register in database</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+<!--        <h1>Hello World!</h1>-->
         <%
             response.setContentType("text/html");
             String uname = request.getParameter("uname");
@@ -23,26 +23,30 @@
             String city = request.getParameter("city");
             String sport = request.getParameter("sport");
             String pass = request.getParameter("pass");
-            out.println("Hello");
+            //out.println("Hello");
             
             try
             {
                 String myUrl = "jdbc:mysql://localhost:3306/carpool";
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection conn = DriverManager.getConnection(myUrl,"root","");
-                out.println("Hello 1");
+               // out.println("Hello 1");
 
-                String query = "insert into users values(\""+uname+"\", "+age+", \""+email+"\", "+phone+", \""+color+"\", \""+city+"\", \""+sport+"\", \""+pass+"\")";
+                String query = "insert into users(uname,age,email,phoneNo,color,city,sport,pass) values(\""+uname+"\", "+age+", \""+email+"\", "+phone+", \""+color+"\", \""+city+"\", \""+sport+"\", \""+pass+"\")";
                 Statement st = conn.createStatement();
                 st.executeUpdate(query);
                 
-               out.println("values inserted into database");
-                out.println("<form action='ses.jsp'>" +
-                        "<input type='hidden' name='username' value="+uname+">" +
-                        "<input type='hidden' name='password' value="+pass+">" +
-                  "</form>");
+               //out.println("values inserted into database");
+//                out.println("<form action='ses.jsp'>" +
+//                        "<input type='hidden' name='username' value="+uname+">" +
+//                        "<input type='hidden' name='password' value="+pass+">" +
+//                  "</form>");
+
                  session=request.getSession(true);  
                  session.setAttribute("uname",uname); 
+                 
+                 RequestDispatcher rd=request.getRequestDispatcher("/index.jsp");  
+                    rd.include(request, response);
               
                 st.close();
             }
@@ -56,5 +60,8 @@
             }
            //out.println("insert into value users(\""+uname+"\", "+age+", \""+email+"\", "+phone+", \""+color+"\", \""+city+"\", \""+sport+"\", \""+pass+"\")"); 
         %>
+        <form action="dashboard.jsp">
+            <input type="hidden">
+        </form>
     </body>
 </html>

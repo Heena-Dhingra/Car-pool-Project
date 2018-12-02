@@ -13,7 +13,7 @@ and open the template in the editor.
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script>
             var check = function() {
-            if (document.getElementById('pass').value == document.getElementById('pass2').value) {
+            if (document.getElementById('pass').value === document.getElementById('pass2').value) {
               document.getElementById('message').style.color = 'green';
               document.getElementById('message').innerHTML = 'matching';
             } else {
@@ -45,32 +45,32 @@ and open the template in the editor.
                     </div> -->
                     
                     <div class="inputBox">
-                        <input type="number" name="age" maxlength="3" min="18" title="you should be over 18 to register"><br><br>
+                        <input type="number" name="age" max="100" min="18" title="you should be over 18 to register" required><br><br>
                         <label>Age</label>
                     </div>
                     
                     <div class="inputBox">
-                        <input type="text" name="email" maxlength="40" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{1,}[.]{1}[a-zA-Z]{1,}" title="use of @ and . is mandatory in this field"><br><br>
-                        <label>E-MAIL</label>
+                        <input type="text" name="email" required maxlength="40" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{1,}[.]{1}[a-zA-Z]{1,}" title="use of @ and . is mandatory in this field"><br><br>
+                        <label>E-Mail</label>
                     </div>
                     
                     <div class="inputBox">
-                        <input type="tel" name="phoneno" maxlength="10" pattern="[789][0-9]{9}" title="Phone number should start with 7,8 or 9"><br><br>
-                        <label>PHONE-NO</label>
+                        <input type="tel" name="phoneno" required maxlength="10" pattern="[789][0-9]{9}" title="Phone number should start with 7,8 or 9"><br><br>
+                        <label>Phone-No</label>
                     </div>
                     
                     <div class="inputBox">
-                        <input type="text" name="color" maxlength="12"><br><br>
+                        <input type="text" name="color" required maxlength="12"><br><br>
                         <label>Enter Fav Color</label>
                     </div>
                     
                     <div class="inputBox">
-                        <input type="text" name="city" maxlength="12"><br><br>
+                        <input type="text" name="city" required maxlength="12"><br><br>
                         <label>Enter Fav City:</label>
                     </div>
                     
                     <div class="inputBox">
-                        <input type="text" name="sport" maxlength="12"><br><br>
+                        <input type="text" name="sport" required maxlength="12"><br><br>
                         <label>Enter Fav Sport:</label>
                     </div>
 

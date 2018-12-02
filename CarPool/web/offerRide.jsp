@@ -10,12 +10,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Offer Ride</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/offerRide.css">
     </head>
     <body>
+        <%
+         String uname=(String)session.getAttribute("uname");  
+         session.setAttribute("uname",uname); 
+         %>
         <div class="box">
 			<h2>Offer Ride!</h2>
-			<form action="#">
+			<form action="offerRideDB.jsp">
 				<div class="inputBox">
 					<input type="text" name="departure" required>
 					<label>Departure Point:</label>
@@ -31,12 +35,12 @@
 					<label>Stopover Points:</label>
 				</div>
                                 <div class="inputBox">
-					<input type="date" name="date" required>
-					<label>Date:</label>
+					<input type="date" name="dateC" title="choose date from calender" required>
+<!--					<label>Date:</label>-->
 				</div>
                                 <div class="inputBox">
-					<input type="time" name="time" required>
-					<label>Time:</label>
+					<input type="time" name="timeC" title="Enter time in 13:04 AM format" >
+<!--					<label>Time:</label>-->
 				</div>
 				<input type="submit" value="submit"><br><br>
 				

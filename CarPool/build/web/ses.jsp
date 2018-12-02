@@ -21,6 +21,7 @@
             String uname=(String)session.getAttribute("uname");  
         
             out.println("Its nice to see you here "+uname+". Your password: ");
+            session.setAttribute("uname",uname); 
         %>    
         <header>
 		<!-- <div class="logo">
